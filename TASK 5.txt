@@ -1,0 +1,29 @@
+contacts = {}
+
+def add(): 
+    n = input("Name: ")
+    p = input("Phone: ")
+    contacts[n] = p
+
+def view(): 
+    for n, p in contacts.items(): 
+        print(f"{n}: {p}")
+
+def search():
+    k = input("Search name: ")
+    print(f"{k}: {contacts.get(k, 'Not found')}")
+
+def delete():
+    n = input("Delete name: ")
+    if n in contacts: 
+        del contacts[n]; print("Deleted")
+    else: print("Not found")
+
+while True:
+    c = input("\n1-Add 2-View 3-Search 4-Delete 5-Exit: ")
+    if c == "1": add()
+    elif c == "2": view()
+    elif c == "3": search()
+    elif c == "4": delete()
+    elif c == "5": break
+    else: print("Invalid")
